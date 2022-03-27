@@ -1,10 +1,12 @@
 package plus.ldl.model.admin.pojos;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class AdChannel {
     private Integer id;

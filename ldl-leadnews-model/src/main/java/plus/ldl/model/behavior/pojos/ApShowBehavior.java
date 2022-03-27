@@ -1,10 +1,12 @@
 package plus.ldl.model.behavior.pojos;
 
 import lombok.Data;
-import lombok.Setter;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class ApShowBehavior {
     private Integer id;

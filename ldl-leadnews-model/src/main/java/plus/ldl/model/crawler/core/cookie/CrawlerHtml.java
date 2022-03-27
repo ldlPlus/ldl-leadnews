@@ -2,6 +2,9 @@ package plus.ldl.model.crawler.core.cookie;
 
 import java.util.List;
 
+/**
+ * @author ldl
+ */
 public class CrawlerHtml {
 
 

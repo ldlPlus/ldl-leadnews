@@ -3,8 +3,13 @@ package plus.ldl.model.quartz.dtos;
 import lombok.Data;
 
 import java.io.Serializable;
+
+/**
+ * @author ldl
+ */
 @Data
 public class QuartzJob implements Serializable {
+    private static final long serialVersionUID = 8840469851254711073L;
     /**
      * 任务名称
      */

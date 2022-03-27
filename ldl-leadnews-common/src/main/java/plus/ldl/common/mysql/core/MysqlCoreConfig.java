@@ -24,7 +24,7 @@ import java.io.IOException;
 @Configuration
 @ConfigurationProperties(prefix = "mysql.core")
 @PropertySource("classpath:mysql-core-jdbc.properties")
-@MapperScan(basePackages = "com.heima.model.mappers", sqlSessionFactoryRef = "mysqlCoreSqlSessionFactory")
+@MapperScan(basePackages = "plus.ldl.model.mappers", sqlSessionFactoryRef = "mysqlCoreSqlSessionFactory")
 public class MysqlCoreConfig {
     String jdbcUrl;
     String jdbcUserName;
@@ -35,7 +35,8 @@ public class MysqlCoreConfig {
     String helperDialect = "mysql";// 分页语言
     Boolean helperReasonable = false;//分页合理化
     Boolean supportMethodsArguments = false;//自动根据上面 params 配置的字段中取值
-    String params;//pageNum,pageSize,count,pageSizeZero,reasonable，不配置映射的用默认值， 默认值为pageNum=pageNum;pageSize=pageSize;count=countSql;reasonable=reasonable;pageSizeZero=pageSizeZero
+    String params;//pageNum,pageSize,count,pageSizeZero,reasonable，不配置映射的用默认值， 默认值为pageNum=pageNum;pageSize=pageSize;
+    // count=countSql;reasonable=reasonable;pageSizeZero=pageSizeZero
 
     /**
      * 这是最快的数据库连接池

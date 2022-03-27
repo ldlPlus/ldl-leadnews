@@ -1,10 +1,13 @@
 package plus.ldl.model.media.pojos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class WmMaterial {
     private Integer id;

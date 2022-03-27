@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <!-- 继承Spring boot工程 -->
@@ -60,6 +60,7 @@
         <kafka.version>2.2.7.RELEASE</kafka.version>
         <kafka.client.version>2.0.1</kafka.client.version>
         <reflections.version>0.9.11</reflections.version>
+        <hutool.version>5.7.5</hutool.version>
     </properties>
 
     <dependencies>
@@ -242,13 +243,13 @@
                 <version>${hanlp.version}</version>
             </dependency>
             <!-- 阿里SDK  -->
-<!--            <dependency>-->
-<!--                <groupId>com.baidu</groupId>-->
-<!--                <artifactId>aip-java-sdk</artifactId>-->
-<!--                <version>${baidu.version}</version>-->
-<!--                <scope>system</scope>-->
-<!--                <systemPath>${project.basedir}/../sdk-jar/baidu/aip-java-sdk-4.11.1.jar</systemPath>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>com.baidu</groupId>-->
+            <!--                <artifactId>aip-java-sdk</artifactId>-->
+            <!--                <version>${baidu.version}</version>-->
+            <!--                <scope>system</scope>-->
+            <!--                <systemPath>${project.basedir}/../sdk-jar/baidu/aip-java-sdk-4.11.1.jar</systemPath>-->
+            <!--            </dependency>-->
             <!-- fastdfs客服端 -->
             <dependency>
                 <groupId>com.luhuiguo</groupId>

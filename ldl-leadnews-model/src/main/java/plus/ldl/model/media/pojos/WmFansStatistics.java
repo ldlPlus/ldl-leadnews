@@ -4,15 +4,18 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class WmFansStatistics {
-    public static final String FILEDS_ARTICLE =  "article";
-    public static final String FILEDS_COLLECTION =  "collection";
-    public static final String FILEDS_READ_COUNT =  "readCount";
-    public static final String FILEDS_FORWARD =  "forward";
-    public static final String FILEDS_UNLIKES =  "unlikes";
-    public static final String FILEDS_FOLLOW =  "follow";
-    public static final String FILEDS_UNFOLLOW =  "unfollow";
+    public static final String FILEDS_ARTICLE = "article";
+    public static final String FILEDS_COLLECTION = "collection";
+    public static final String FILEDS_READ_COUNT = "readCount";
+    public static final String FILEDS_FORWARD = "forward";
+    public static final String FILEDS_UNLIKES = "unlikes";
+    public static final String FILEDS_FOLLOW = "follow";
+    public static final String FILEDS_UNFOLLOW = "unfollow";
     private Long id;
     private Long userId;
     private Integer article;

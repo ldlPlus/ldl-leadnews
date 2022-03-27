@@ -7,9 +7,11 @@ import java.util.Date;
 
 /**
  * 文章评论
+ * @author ldl
  */
 @Data
 public class ClNewsComment implements Serializable {
+    private static final long serialVersionUID = -1452539207824925237L;
     /**
      * 主键
      */

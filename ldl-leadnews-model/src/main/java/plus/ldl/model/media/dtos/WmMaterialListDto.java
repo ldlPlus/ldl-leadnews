@@ -1,9 +1,17 @@
 package plus.ldl.model.media.dtos;
 
-import plus.ldl.model.common.dtos.PageRequestDto;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import plus.ldl.model.common.dtos.PageRequestDto;
 
+/**
+ * @author ldl
+ */
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class WmMaterialListDto extends PageRequestDto {
-    Short isCollected; //1 查询收藏的
+    /**
+     * 1 查询收藏的
+     */
+    Short isCollected;
 }

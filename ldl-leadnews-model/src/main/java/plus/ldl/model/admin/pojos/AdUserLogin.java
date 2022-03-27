@@ -5,6 +5,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class AdUserLogin {
     private Integer id;

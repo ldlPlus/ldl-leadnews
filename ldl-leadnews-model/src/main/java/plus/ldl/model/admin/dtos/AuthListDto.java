@@ -2,6 +2,9 @@ package plus.ldl.model.admin.dtos;
 
 import lombok.Data;
 
+/**
+ * @author ldl
+ */
 @Data
 public class AuthListDto {
 

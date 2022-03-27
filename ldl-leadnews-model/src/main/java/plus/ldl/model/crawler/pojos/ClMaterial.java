@@ -6,6 +6,7 @@ import java.util.Date;
 
 /**
  * 媒体
+ * @author ldl
  */
 @Data
 public class ClMaterial {

@@ -3,6 +3,9 @@ package plus.ldl.model.common.dtos;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @author ldl
+ */
 @Data
 @Slf4j
 public class PageRequestDto {

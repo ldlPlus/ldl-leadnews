@@ -4,14 +4,6 @@ import java.util.Date;
 
 public class CrawlerCookie {
 
-    public CrawlerCookie() {
-    }
-
-    public CrawlerCookie(String name, boolean isRequired) {
-        this.name = name;
-        this.isRequired = isRequired;
-    }
-
     /**
      * cookie名称
      */
@@ -28,17 +20,23 @@ public class CrawlerCookie {
      * 路径
      */
     private String path;
-
-
     /**
      * 过期时间
      */
     private Date expire;
-
     /**
      * 是否是必须的
      */
     private boolean isRequired;
+
+
+    public CrawlerCookie() {
+    }
+
+    public CrawlerCookie(String name, boolean isRequired) {
+        this.name = name;
+        this.isRequired = isRequired;
+    }
 
     /**
      * 校验是否过期

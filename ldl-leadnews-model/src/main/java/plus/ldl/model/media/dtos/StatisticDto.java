@@ -5,6 +5,9 @@ import lombok.Data;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author ldl
+ */
 @Data
 public class StatisticDto {
 

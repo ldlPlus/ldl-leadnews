@@ -11,6 +11,15 @@ import lombok.Setter;
 @Getter
 public class StorageEntry {
     /**
+     * 字段的Key
+     */
+    private String key;
+    /**
+     * 字段的Value
+     */
+    private String value;
+
+    /**
      * 空的构造方法
      */
     public StorageEntry() {
@@ -26,15 +35,5 @@ public class StorageEntry {
         this.key = key;
         this.value = value;
     }
-
-    /**
-     * 字段的Key
-     */
-    private String key;
-
-    /**
-     * 字段的Value
-     */
-    private String value;
 
 }

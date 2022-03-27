@@ -10,6 +10,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * 代理IP的提供者
+ *
+ * @author ldl
  */
 public class CrawlerProxyProvider {
     /**
@@ -18,25 +20,21 @@ public class CrawlerProxyProvider {
      * 写写互斥
      * 读写互斥
      */
-    private ReadWriteLock lock = new ReentrantReadWriteLock();
-    //获取读锁
-    private Lock readLock = lock.readLock();
-    //获取写锁
-    private Lock writeLock = lock.writeLock();
+    private final ReadWriteLock lock = new ReentrantReadWriteLock();
+    /**
+     * 获取读锁
+     */
+    private final Lock readLock = lock.readLock();
+    /**
+     * 获取写锁
+     */
+    private final Lock writeLock = lock.writeLock();
     /**
      * 随机数生成器，用以随机获取代理IP
      */
-    private Random random = new Random();
+    private final Random random = new Random();
 
     private boolean isUsedProxyIp = true;
-
-    public CrawlerProxyProvider() {
-    }
-
-    public CrawlerProxyProvider(List<CrawlerProxy> crawlerProxyList) {
-        this.crawlerProxyList = crawlerProxyList;
-    }
-
     /**
      * 代理Ip池
      */
@@ -45,6 +43,13 @@ public class CrawlerProxyProvider {
      * ip池回调
      */
     private ProxyProviderCallBack proxyProviderCallBack;
+
+    public CrawlerProxyProvider() {
+    }
+
+    public CrawlerProxyProvider(List<CrawlerProxy> crawlerProxyList) {
+        this.crawlerProxyList = crawlerProxyList;
+    }
 
     /**
      * 随机获取一个代理IP保证每次请求使用的IP都不一样

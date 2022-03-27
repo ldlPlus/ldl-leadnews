@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class AdUserEquipment {
     private Integer id;

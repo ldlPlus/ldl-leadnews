@@ -1,8 +1,11 @@
 package plus.ldl.model.user.dtos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
+/**
+ * @author ldl
+ */
 @Data
 public class FansOperationDto {
     @IdEncrypt

@@ -3,6 +3,10 @@ package plus.ldl.model.media.pojos;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * @author ldl
+ */
 @Data
 public class WmUserEquipment {
     private Integer id;

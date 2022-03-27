@@ -1,11 +1,14 @@
 package plus.ldl.model.user.pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class ApUserFan {
     private Long id;

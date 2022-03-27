@@ -3,12 +3,16 @@ package plus.ldl.model.user.pojos;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * @author ldl
+ */
 @Data
 public class ApUserInfo {
     private Integer id;
     private Integer userId;
     private String name;
-    private String idno;
+    private String idNo;
     private String company;
     private String occupation;
     private Byte age;

@@ -2,6 +2,9 @@ package plus.ldl.model.article.pojos;
 
 import lombok.Data;
 
+/**
+ * @author ldl
+ */
 @Data
 public class ApEquipmentCode {
     private Integer id;

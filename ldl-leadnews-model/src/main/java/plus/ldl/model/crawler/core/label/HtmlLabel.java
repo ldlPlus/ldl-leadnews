@@ -2,6 +2,9 @@ package plus.ldl.model.crawler.core.label;
 
 import java.io.Serializable;
 
+/**
+ * @author ldl
+ */
 public class HtmlLabel implements Serializable {
 
     /**

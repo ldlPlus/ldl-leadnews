@@ -1,16 +1,23 @@
 package plus.ldl.model.behavior.dtos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class CollectionBehaviorDto {
-    // 设备ID
+    /**
+     * 设备ID
+     */
     @IdEncrypt
     Integer equipmentId;
-    // 文章、动态ID
+    /**
+     * 文章、动态ID
+     */
     @IdEncrypt
     Integer entryId;
     /**

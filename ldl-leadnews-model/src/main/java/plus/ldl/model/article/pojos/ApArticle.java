@@ -1,12 +1,15 @@
 package plus.ldl.model.article.pojos;
 
 
+import lombok.Data;
 import plus.ldl.model.annotation.DateConvert;
 import plus.ldl.model.annotation.IdEncrypt;
-import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class ApArticle {
     private Integer id;

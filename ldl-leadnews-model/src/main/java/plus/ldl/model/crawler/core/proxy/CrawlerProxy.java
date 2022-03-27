@@ -8,15 +8,13 @@ import java.io.Serializable;
 public class CrawlerProxy implements Serializable {
 
 
+    private String host;
+    private Integer port;
+
     public CrawlerProxy(String host, Integer port) {
         this.host = host;
         this.port = port;
     }
-
-    private String host;
-
-    private Integer port;
-
 
     /**
      * 获取代理信息

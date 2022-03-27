@@ -4,6 +4,7 @@ import lombok.Data;
 
 /**
  * 媒体文章关联
+ * @author ldl
  */
 @Data
 public class ClNewsMaterial {

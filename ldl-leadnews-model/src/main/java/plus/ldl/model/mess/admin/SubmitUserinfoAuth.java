@@ -10,8 +10,8 @@ public class SubmitUserinfoAuth {
     // 用户ID
     private Integer userId;
 
-    public enum UserInfoType{
-      IDENTITY,REALNAME;
+    public enum UserInfoType {
+        IDENTITY, REALNAME;
     }
 
 }

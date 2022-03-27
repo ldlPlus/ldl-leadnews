@@ -1,7 +1,7 @@
 package plus.ldl.model.user.pojos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 

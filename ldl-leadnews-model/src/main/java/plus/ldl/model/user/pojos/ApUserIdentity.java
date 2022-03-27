@@ -4,12 +4,15 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class ApUserIdentity {
     private Integer id;
     private Integer userId;
     private String name;
-    private String idno;
+    private String idNo;
     private String fontImage;
     private String backImage;
     private String holdImage;
@@ -20,7 +23,7 @@ public class ApUserIdentity {
     private Integer status;
     private String reason;
     private Date createdTime;
-    private Date submitedTime;
+    private Date submittedTime;
     private Date updatedTime;
 
 }

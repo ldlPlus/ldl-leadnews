@@ -1,11 +1,14 @@
 package plus.ldl.model.media.dtos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author ldl
+ */
 @Data
 public class WmNewsDto {
     private Integer id;
@@ -16,7 +19,7 @@ public class WmNewsDto {
     private Date publishTime;
     private String content;
     private Short type;
-    private Date submitedTime;
+    private Date submittedTime;
     private Short status;
     private String reason;
     private List<String> images;

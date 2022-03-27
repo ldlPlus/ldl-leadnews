@@ -1,11 +1,14 @@
 package plus.ldl.model.media.dtos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class ApUserFanDto {
     private Long id;

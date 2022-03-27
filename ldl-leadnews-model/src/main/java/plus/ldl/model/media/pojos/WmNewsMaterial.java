@@ -2,6 +2,9 @@ package plus.ldl.model.media.pojos;
 
 import lombok.Data;
 
+/**
+ * @author ldl
+ */
 @Data
 public class WmNewsMaterial {
     private Integer id;

@@ -1,14 +1,14 @@
 package plus.ldl.common.web.app.security;
 
 import com.alibaba.fastjson.JSON;
-import plus.ldl.common.common.contants.Contants;
-import plus.ldl.model.common.dtos.ResponseResult;
-import plus.ldl.model.common.enums.AppHttpCodeEnum;
-import plus.ldl.utils.common.UrlSignUtils;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.filter.GenericFilterBean;
+import plus.ldl.common.common.contants.Contants;
+import plus.ldl.model.common.dtos.ResponseResult;
+import plus.ldl.model.common.enums.AppHttpCodeEnum;
+import plus.ldl.utils.common.UrlSignUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -26,20 +26,52 @@ import java.util.TreeMap;
 
 @Log4j2
 @Order(1)
-@WebFilter(filterName = "appCheckSignFilter" ,urlPatterns = "/*")
+@WebFilter(filterName = "appCheckSignFilter", urlPatterns = "/*")
 public class AppCheckSignFilter extends GenericFilterBean {
 
     // URL有效果的验签效果
     public final static int URL_TIMEOUT = 2 * 60 * 1000;
 
-    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+    //从请求中获取所有参数
+    private static SortedMap<String, String> getAllParams(HttpServletRequest request) {
+        SortedMap<String, String> result = new TreeMap<>();
+        Map<String, String> urlParams = getUrlParams(request);
+        for (Map.Entry entry : urlParams.entrySet()) {
+            result.put((String) entry.getKey(), (String) entry.getValue());
+        }
+        return result;
+    }
+
+    //将请求参数转换成Map
+    private static Map<String, String> getUrlParams(HttpServletRequest request) {
+        String param = "";
+        try {
+            if (request.getQueryString() != null) {
+                param = URLDecoder.decode(request.getQueryString(), "utf-8");
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        Map<String, String> result = new HashMap<>();
+        String[] params = param.split("&");
+        if (StringUtils.isNotEmpty(param)) {
+            for (String s : params) {
+                Integer index = s.indexOf("=");
+                result.put(s.substring(0, index), s.substring(index + 1));
+            }
+        }
+        return result;
+    }
+
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException,
+            ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
         ResponseResult<?> result = checkToken(request);
         String uri = request.getRequestURI();
 
-        log.info("=======================测试日志：{};{}",uri,result);
+        log.info("=======================测试日志：{};{}", uri, result);
         // 测试和开发环境不过滤
-        if (true || result == null || !Contants.isProd()||uri.startsWith("/login")){
+        if (true || result == null || !Contants.isProd() || uri.startsWith("/login")) {
             chain.doFilter(req, res);
         } else {
             res.setCharacterEncoding(Contants.CHARTER_NAME);
@@ -71,36 +103,5 @@ public class AppCheckSignFilter extends GenericFilterBean {
             rr = ResponseResult.setAppHttpCodeEnum(AppHttpCodeEnum.SIG_TIMEOUT);
         }
         return rr;
-    }
-
-    //从请求中获取所有参数
-    private static SortedMap<String, String> getAllParams(HttpServletRequest request) {
-        SortedMap<String, String> result = new TreeMap<>();
-        Map<String, String> urlParams = getUrlParams(request);
-        for (Map.Entry entry : urlParams.entrySet()) {
-            result.put((String) entry.getKey(), (String) entry.getValue());
-        }
-        return result;
-    }
-
-    //将请求参数转换成Map
-    private static Map<String, String> getUrlParams(HttpServletRequest request) {
-        String param = "";
-        try {
-            if (request.getQueryString() != null) {
-                param = URLDecoder.decode(request.getQueryString(), "utf-8");
-            }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        Map<String, String> result = new HashMap<>();
-        String[] params = param.split("&");
-        if (StringUtils.isNotEmpty(param)) {
-            for (String s : params) {
-                Integer index = s.indexOf("=");
-                result.put(s.substring(0, index), s.substring(index + 1));
-            }
-        }
-        return result;
     }
 }

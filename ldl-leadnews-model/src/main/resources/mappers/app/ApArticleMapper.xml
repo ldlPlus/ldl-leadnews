@@ -28,38 +28,55 @@
         <result column="count" property="count"/>
     </resultMap>
     <sql id="Base_Column_List">
-    id, title, author_id, author_name, channel_id, channel_name, layout, flag, images,
-    labels, likes, collection, comment, views, province_id, city_id, county_id, created_time,
-    publish_time,sync_status
-  </sql>
+        id,
+        title,
+        author_id,
+        author_name,
+        channel_id,
+        channel_name,
+        layout,
+        flag,
+        images,
+        labels,
+        likes,
+        collection,
+        comment,
+        views,
+        province_id,
+        city_id,
+        county_id,
+        created_time,
+        publish_time,
+        sync_status
+    </sql>
 
     <sql id="Base_Column_Where">
         <where>
-            <if test="title!=null and title!=''">
+            <if test="title != null and title != ''">
                 and title = #{title}
             </if>
-            <if test="authorId!=null and authorId!=''">
+            <if test="authorId != null and authorId != ''">
                 and author_id = #{authorId}
             </if>
-            <if test="authorName!=null and authorName!=''">
+            <if test="authorName != null and authorName != ''">
                 and author_name = #{authorName}
             </if>
-            <if test="channelId!=null and channelId!=''">
+            <if test="channelId != null and channelId != ''">
                 and channel_id = #{channelId}
             </if>
-            <if test="channelName!=null and channelName!=''">
+            <if test="channelName != null and channelName != ''">
                 and channel_name = #{channelName}
             </if>
-            <if test="layout!=null and layout!=''">
+            <if test="layout != null and layout != ''">
                 and layout = #{layout}
             </if>
-            <if test="flag!=null and flag!=''">
+            <if test="flag != null and flag != ''">
                 and flag = #{flag}
             </if>
-            <if test="views!=null and views!=''">
+            <if test="views != null and views != ''">
                 and views = #{views}
             </if>
-            <if test="syncStatus!=null">
+            <if test="syncStatus != null">
                 and sync_status = #{syncStatus}
             </if>
         </where>
@@ -70,11 +87,13 @@
         <include refid="Base_Column_List"/>
         from ap_article
         where id = #{id}
-
     </select>
 
     <select id="selectListForStatistic" resultMap="resultStatisticMap">
-        select author_id,count(1) as count from ap_article where publish_time between date_format(now(),'%Y-%m-%d') and date_format(now(),'%Y-%m-%d 23:59:59') group by author_id
+        select author_id, count(1) as count
+        from ap_article
+        where publish_time between date_format(now(), '%Y-%m-%d') and date_format(now(), '%Y-%m-%d 23:59:59')
+        group by author_id
     </select>
 
 
@@ -89,21 +108,21 @@
     <select id="loadArticleListByLocation" resultMap="resultMap">
         select * from ap_article a
         <where>
-            <if test="dto.provinceId!=null">
+            <if test="dto.provinceId != null">
                 and a.province_id=#{dto.provinceId}
             </if>
-            <if test="dto.cityId!=null">
+            <if test="dto.cityId != null">
                 and a.city_id=#{dto.cityId}
             </if>
-            <if test="dto.countyId!=null">
+            <if test="dto.countyId != null">
                 and a.county_id=#{dto.countyId}
             </if>
             <!-- loadmore -->
             <if test="type != null and type == 1">
-                and a.publish_time <![CDATA[<]]> #{dto.minBehotTime}
+                and a.publish_time <![CDATA[<]]> #{dto.minBeHotTime}
             </if>
             <if test="type != null and type == 2">
-                and a.publish_time <![CDATA[>]]> #{dto.maxBehotTime}
+                and a.publish_time <![CDATA[>]]> #{dto.maxBeHotTime}
             </if>
             <if test="dto.tag != '__all__'">
                 and a.channel_id = #{dto.tag}
@@ -199,6 +218,4 @@
     <update id="updateSyncStatus">
         UPDATE ap_article SET sync_status = #{syncStatus} WHERE id=#{id}
     </update>
-
-
 </mapper>

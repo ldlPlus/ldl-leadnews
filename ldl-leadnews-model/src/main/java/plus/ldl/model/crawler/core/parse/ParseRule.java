@@ -36,6 +36,7 @@ public class ParseRule {
 
     /**
      * 构造方法
+     *
      * @param field
      * @param parseRuleType
      * @param rule
@@ -48,6 +49,7 @@ public class ParseRule {
 
     /**
      * 检查是否有效，如果内容为空则判断该类为空
+     *
      * @return
      */
     public boolean isAvailability() {

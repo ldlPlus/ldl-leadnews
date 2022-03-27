@@ -1,9 +1,9 @@
 package plus.ldl.common.common.init;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import plus.ldl.common.jackson.ConfusionModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import plus.ldl.common.jackson.ConfusionModule;
 
 @Configuration
 public class InitJacksonConfig {

@@ -5,6 +5,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 @NoArgsConstructor
 public class AdArticleStatistics {

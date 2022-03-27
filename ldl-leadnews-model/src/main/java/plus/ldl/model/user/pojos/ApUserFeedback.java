@@ -3,6 +3,10 @@ package plus.ldl.model.user.pojos;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * @author ldl
+ */
 @Data
 public class ApUserFeedback {
     private Integer id;

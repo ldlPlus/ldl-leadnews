@@ -3,6 +3,10 @@ package plus.ldl.model.crawler.pojos;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * @author ldl
+ */
 @Data
 public class ClIpPool {
     private Integer id;

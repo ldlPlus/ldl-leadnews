@@ -3,6 +3,10 @@ package plus.ldl.model.article.pojos;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * @author ldl
+ */
 @Data
 public class ApEquipment {
     private Integer id;

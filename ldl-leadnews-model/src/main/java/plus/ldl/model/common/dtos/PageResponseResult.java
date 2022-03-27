@@ -1,6 +1,15 @@
 package plus.ldl.model.common.dtos;
 
-public class PageResponseResult extends ResponseResult {
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ * @author ldl
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class PageResponseResult<T> extends ResponseResult<T> {
+    private static final long serialVersionUID = -8425248107997907758L;
     private Integer currentPage;
     private Integer size;
     private Integer total;
@@ -11,27 +20,17 @@ public class PageResponseResult extends ResponseResult {
         this.total = total;
     }
 
-    public int getCurrentPage() {
-        return currentPage;
-    }
-
-    public void setCurrentPage(int currentPage) {
+    public PageResponseResult(T data, Integer currentPage, Integer size, Integer total) {
+        super(data);
         this.currentPage = currentPage;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
         this.size = size;
+        this.total = total;
     }
 
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
+    public PageResponseResult(Integer code, String msg, T data, Integer currentPage, Integer size, Integer total) {
+        super(code, msg, data);
+        this.currentPage = currentPage;
+        this.size = size;
         this.total = total;
     }
 }

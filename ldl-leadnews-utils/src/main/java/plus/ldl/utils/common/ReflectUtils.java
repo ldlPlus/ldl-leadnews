@@ -328,7 +328,8 @@ public class ReflectUtils {
      * @return
      */
     public static Annotation[] getFieldAnnotations(Object bean, PropertyDescriptor propertyDescriptor) {
-        List<Field> fieldList = Arrays.asList(bean.getClass().getDeclaredFields()).stream().filter(f -> f.getName().equals(propertyDescriptor.getName())).collect(Collectors.toList());
+        List<Field> fieldList =
+                Arrays.asList(bean.getClass().getDeclaredFields()).stream().filter(f -> f.getName().equals(propertyDescriptor.getName())).collect(Collectors.toList());
         if (null != fieldList && fieldList.size() > 0) {
             return fieldList.get(0).getDeclaredAnnotations();
         }

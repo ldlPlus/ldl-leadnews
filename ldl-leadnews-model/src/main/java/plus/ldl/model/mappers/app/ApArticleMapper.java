@@ -1,14 +1,17 @@
 package plus.ldl.model.mappers.app;
 
 
+import org.apache.ibatis.annotations.Param;
 import plus.ldl.model.article.dtos.ArticleHomeDto;
 import plus.ldl.model.article.pojos.ApArticle;
 import plus.ldl.model.article.pojos.ApArticleSDto;
 import plus.ldl.model.user.pojos.ApUserArticleList;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @author ldl
+ */
 public interface ApArticleMapper {
 
 
@@ -40,6 +43,7 @@ public interface ApArticleMapper {
 
     /**
      * 依据文章IDS来获取文章详细内容
+     *
      * @param list 文章ID
      * @return
      */
@@ -69,12 +73,14 @@ public interface ApArticleMapper {
 
     /**
      * 更新
+     *
      * @param apArticle
      */
     void updateSyncStatus(ApArticle apArticle);
 
     /**
      * 获取当日发布的图文
+     *
      * @return
      */
     List<ApArticleSDto> selectListForStatistic();

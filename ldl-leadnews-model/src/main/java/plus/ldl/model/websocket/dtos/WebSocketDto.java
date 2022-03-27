@@ -1,14 +1,21 @@
 package plus.ldl.model.websocket.dtos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
+/**
+ * @author ldl
+ */
 @Data
 public class WebSocketDto {
-    // 设备ID
+    /**
+     * 设备ID
+     */
     @IdEncrypt
-    Integer equipmentId;
-    // 文章ID
+    private Integer equipmentId;
+    /**
+     * 文章ID
+     */
     @IdEncrypt
-    String token;
+    private String token;
 }

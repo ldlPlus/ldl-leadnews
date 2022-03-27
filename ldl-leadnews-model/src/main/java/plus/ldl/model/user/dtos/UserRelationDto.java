@@ -1,7 +1,7 @@
 package plus.ldl.model.user.dtos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 @Data
 public class UserRelationDto {

@@ -1,21 +1,24 @@
 package plus.ldl.model.user.pojos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ApUserRealname {
+public class ApUserRealName {
     private Integer id;
     @IdEncrypt
     private Integer userId;
     private String name;
-    private String idno;
+    private String idNo;
     private String fontImage;
     private String backImage;
     private String holdImage;
@@ -23,7 +26,7 @@ public class ApUserRealname {
     private Short status;
     private String reason;
     private Date createdTime;
-    private Date submitedTime;
+    private Date submittedTime;
     private Date updatedTime;
 
 

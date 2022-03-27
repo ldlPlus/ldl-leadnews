@@ -1,19 +1,22 @@
 package plus.ldl.model.media.pojos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
 @Data
 public class WmNewsStatistics {
-    public static final String FILEDS_ARTICLE =  "article";
-    public static final String FILEDS_COLLECTION =  "collection";
-    public static final String FILEDS_READ_COUNT =  "readCount";
-    public static final String FILEDS_FORWARD =  "forward";
-    public static final String FILEDS_UNLIKES =  "unlikes";
-    public static final String FILEDS_FOLLOW =  "follow";
-    public static final String FILEDS_UNFOLLOW =  "unfollow";
+    public static final String FILEDS_ARTICLE = "article";
+    public static final String FILEDS_COLLECTION = "collection";
+    public static final String FILEDS_READ_COUNT = "readCount";
+    public static final String FILEDS_FORWARD = "forward";
+    public static final String FILEDS_UNLIKES = "unlikes";
+    public static final String FILEDS_FOLLOW = "follow";
+    public static final String FILEDS_UNFOLLOW = "unfollow";
     private Long id;
     @IdEncrypt
     private Long userId;

@@ -1,7 +1,8 @@
 package plus.ldl.utils.common;
 
-import plus.ldl.model.annotation.DateConvert;
+import cn.hutool.core.date.DateUtil;
 import org.apache.commons.lang3.StringUtils;
+import plus.ldl.model.annotation.DateConvert;
 
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
@@ -13,6 +14,8 @@ import java.util.stream.Collectors;
  * 数据类转换
  */
 public class DataConvertUtils {
+    private DataConvertUtils() {
+    }
 
     /**
      * 自定义数据类型转换
@@ -52,7 +55,7 @@ public class DataConvertUtils {
         if (value instanceof Date && null != dateConvert) {
             String datePattern = dateConvert.value();
             if (StringUtils.isNotEmpty(datePattern)) {
-                unConverValue = DateUtils.dateToString((Date) value, datePattern);
+                unConverValue = DateUtil.format((Date) value, datePattern);
             }
         }
         return unConverValue;
@@ -71,7 +74,7 @@ public class DataConvertUtils {
         if (StringUtils.isNotEmpty(strDateValue) && null != dateConvert) {
             String datePattern = dateConvert.value();
             if (StringUtils.isNotEmpty(datePattern)) {
-                dateValue = DateUtils.stringToDate(strDateValue, datePattern);
+                dateValue = DateUtil.parse(strDateValue, datePattern);
             }
         }
         return dateValue;
@@ -86,7 +89,8 @@ public class DataConvertUtils {
     public static DateConvert getDateConvert(Annotation[] annotations) {
         DateConvert dateConvert = null;
         if (null != annotations && annotations.length > 0) {
-            List<Annotation> annotationList = Arrays.asList(annotations).stream().filter(anno -> anno instanceof DateConvert).collect(Collectors.toList());
+            List<Annotation> annotationList =
+                    Arrays.asList(annotations).stream().filter(anno -> anno instanceof DateConvert).collect(Collectors.toList());
             if (null != annotationList && !annotationList.isEmpty()) {
                 dateConvert = (DateConvert) annotationList.get(0);
             }

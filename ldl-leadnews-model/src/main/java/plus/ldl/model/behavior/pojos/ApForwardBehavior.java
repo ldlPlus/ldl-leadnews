@@ -1,10 +1,16 @@
 package plus.ldl.model.behavior.pojos;
 
-import plus.ldl.model.annotation.IdEncrypt;
 import lombok.Data;
+import plus.ldl.model.annotation.IdEncrypt;
 
 import java.util.Date;
 
+/**
+ * @author ldl
+ */
+/**
+ * @author ldl
+ */
 @Data
 public class ApForwardBehavior {
     private Long id;

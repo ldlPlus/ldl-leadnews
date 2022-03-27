@@ -4,6 +4,10 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+/**
+ * @author ldl
+ */
 @Data
 public class WmUserLogin {
     private Integer id;

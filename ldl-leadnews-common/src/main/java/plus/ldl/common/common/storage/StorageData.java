@@ -1,11 +1,11 @@
 package plus.ldl.common.common.storage;
 
-import plus.ldl.utils.common.DataConvertUtils;
-import plus.ldl.utils.common.ReflectUtils;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
+import plus.ldl.utils.common.DataConvertUtils;
+import plus.ldl.utils.common.ReflectUtils;
 
 import java.beans.PropertyDescriptor;
 import java.util.*;
@@ -26,6 +26,39 @@ public class StorageData {
      * 存储的字段列表
      */
     private List<StorageEntry> entryList = new ArrayList<StorageEntry>();
+
+    /**
+     * 将一个Bean 转换未为StorageData
+     *
+     * @param bean
+     * @return
+     */
+    public static StorageData getStorageData(Object bean) {
+        StorageData hbaseData = null;
+        if (null != bean) {
+            hbaseData = new StorageData();
+            hbaseData.setTargetClassName(bean.getClass().getName());
+            hbaseData.setEntryList(getStorageEntryList(bean));
+
+        }
+        return hbaseData;
+    }
+
+    /**
+     * 根据bean 获取entry 列表
+     *
+     * @param bean
+     * @return
+     */
+    private static List<StorageEntry> getStorageEntryList(Object bean) {
+        PropertyDescriptor[] propertyDescriptorArray = ReflectUtils.getPropertyDescriptorArray(bean);
+        return Arrays.asList(propertyDescriptorArray).stream().map(propertyDescriptor -> {
+            String key = propertyDescriptor.getName();
+            Object value = ReflectUtils.getPropertyDescriptorValue(bean, propertyDescriptor);
+            value = DataConvertUtils.unConvert(value, ReflectUtils.getFieldAnnotations(bean, propertyDescriptor));
+            return new StorageEntry(key, DataConvertUtils.toString(value));
+        }).collect(Collectors.toList());
+    }
 
     /**
      * 添加一个entry
@@ -94,7 +127,6 @@ public class StorageData {
         return entryMap;
     }
 
-
     /**
      * 将当前的StorageData 转换为具体的对象
      *
@@ -106,45 +138,13 @@ public class StorageData {
             bean = ReflectUtils.getClassForBean(targetClassName);
             if (null != bean) {
                 for (StorageEntry entry : entryList) {
-                    Object value = DataConvertUtils.convert(entry.getValue(), ReflectUtils.getFieldAnnotations(bean, entry.getKey()));
+                    Object value = DataConvertUtils.convert(entry.getValue(), ReflectUtils.getFieldAnnotations(bean,
+                            entry.getKey()));
                     ReflectUtils.setPropertie(bean, entry.getKey(), value);
                 }
             }
         }
         return bean;
-    }
-
-    /**
-     * 将一个Bean 转换未为StorageData
-     *
-     * @param bean
-     * @return
-     */
-    public static StorageData getStorageData(Object bean) {
-        StorageData hbaseData = null;
-        if (null != bean) {
-            hbaseData = new StorageData();
-            hbaseData.setTargetClassName(bean.getClass().getName());
-            hbaseData.setEntryList(getStorageEntryList(bean));
-
-        }
-        return hbaseData;
-    }
-
-    /**
-     * 根据bean 获取entry 列表
-     *
-     * @param bean
-     * @return
-     */
-    private static List<StorageEntry> getStorageEntryList(Object bean) {
-        PropertyDescriptor[] propertyDescriptorArray = ReflectUtils.getPropertyDescriptorArray(bean);
-        return Arrays.asList(propertyDescriptorArray).stream().map(propertyDescriptor -> {
-            String key = propertyDescriptor.getName();
-            Object value = ReflectUtils.getPropertyDescriptorValue(bean, propertyDescriptor);
-            value = DataConvertUtils.unConvert(value, ReflectUtils.getFieldAnnotations(bean, propertyDescriptor));
-            return new StorageEntry(key, DataConvertUtils.toString(value));
-        }).collect(Collectors.toList());
     }
 
 }

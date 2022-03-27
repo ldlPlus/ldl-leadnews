@@ -3,6 +3,10 @@ package plus.ldl.model.article.pojos;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * @author ldl
+ */
 @Data
 public class ApDynamic {
     private Integer id;
@@ -11,7 +15,7 @@ public class ApDynamic {
     private String content;
     private Boolean isForward;
     private Integer articleId;
-    private String articelTitle;
+    private String articleTitle;
     private String articleImage;
     private Boolean layout;
     private String images;
