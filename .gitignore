@@ -1,0 +1,37 @@
+# IDE ignore
+rebel.xml
+.DS_Store
+# Eclipse and STS
+.project
+.classpath
+.settings/
+.sts4-cache/
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+*/.DS_Store
+# Maven
+target/
+.factorypath
+.flattened-pom.xml
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+Thumbs.db
